@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8">
+  <title>سایت شخصی Mani</title>
+  <style>
+    body {
+      font-family: Tahoma;
+      margin: 0;
+      background: url('logo of mani.png') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
+      text-align: center;
+    }
+    header {
+      background: rgba(0,0,0,0.7);
+      padding: 20px;
+    }
+    header img {
+      width: 150px;
+      border-radius: 10px;
+      margin-bottom: 10px;
+    }
+    a {
+      color: #0ff;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+    a:hover { color: yellow; }
+    form {
+      background: rgba(0,0,0,0.6);
+      padding: 20px;
+      margin: 20px auto;
+      width: 300px;
+      border-radius: 10px;
+    }
+    input, textarea {
+      width: 90%;
+      margin: 10px;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+    }
+    button {
+      padding: 10px 20px;
+      background: #0ff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover { background: yellow; }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="PUT-YOUR-FIRST-LOGO-IMAGE-LINK-HERE.png" alt="لوگوی killermn99">
+    <h1>killermn99</h1>
+    <p>برند شخصی Mani</p>
+    <a href="https://www.instagram.com/mani.do27?igsh=N3k2ZnNiYXpyYzJy">اینستاگرام</a>
+    <a href="https://youtube.com/@manidousty?si=a7SPOfs23_8p-VSk">یوتیوب</a>
+  </header>
+
+  <h2>درباره من</h2>
+  <p>
+    من Mani هستم، سازنده برند <strong>killermn99</strong>.  
+    علاقه‌مند به گیمینگ، طراحی دیجیتال و ساخت پروژه‌های شخصی آنلاین.  
+    این سایت فضاییه برای معرفی برند و ارتباط مستقیم با من.
+  </p>
+
+  <h2>تماس با من</h2>
+  <form id="contactForm">
+    <input type="text" name="name" placeholder="نام شما" required>
+    <input type="email" name="email" placeholder="ایمیل شما" required>
+    <textarea name="message" placeholder="پیام شما" required></textarea>
+    <button type="submit">ارسال</button>
+  </form>
+
+  <!-- کتابخانه EmailJS -->
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <script>
+    (function(){
+      emailjs.init("vhMPNlCu7HdNbGur7"); // Public Key
+    })();
+
+    document.getElementById('contactForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      emailjs.sendForm('service_0uasy4e', 'template_9w7l6ob', this)
+        .then(function() {
+          alert('پیام شما با موفقیت ارسال شد!');
+        }, function(error) {
+          alert('خطا در ارسال پیام: ' + JSON.stringify(error));
+        });
+    });
+  </script>
+</body>
+</html>
